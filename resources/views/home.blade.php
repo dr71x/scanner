@@ -38,7 +38,8 @@
         height: 350,
         image_format: 'jpeg',
         jpeg_quality: 90,
-        flip_horiz: true
+        flip_horiz: true,
+        facingMode: 'enviroment'
     });
      
     Webcam.attach( '#my_camera' );
