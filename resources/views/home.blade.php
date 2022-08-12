@@ -38,12 +38,12 @@
         height: 350,
         image_format: 'jpeg',
         jpeg_quality: 90
-        video : {
+    });
+     video : {
             facingMode: {
                 exact: "environment"
             }
         }
-    });
      
     Webcam.attach( '#my_camera' );
      
