@@ -39,7 +39,9 @@
         image_format: 'jpeg',
         jpeg_quality: 90,
         flip_horiz: true,
-        facingMode: 'environment'
+        facingMode: {
+          exact: 'environment'
+        }
     });
      
     Webcam.attach( '#my_camera' );
