@@ -43,7 +43,10 @@
         }
     });
      
-    Webcam.attach( '#my_camera' );
+   function changeCamera(){
+        Webcam.reset();
+        Webcam.attach( '#my_camera' );
+     }
      
     function take_snapshot() {
         Webcam.snap( function(data_uri) {
