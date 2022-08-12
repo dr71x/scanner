@@ -18,6 +18,7 @@
             <div class="col-md-6">
                 <div id="my_camera"></div>
                 <br/>
+                <input type=button value="Take Snapshot" onClick="changeCamera()">
                 <input type=button value="Take Snapshot" onClick="take_snapshot()">
                 <input type="hidden" name="image" class="image-tag">
             </div>
@@ -38,16 +39,13 @@
         height: 350,
         image_format: 'jpeg',
         jpeg_quality: 90,
-        facingMode: {
-            exact : 'environment'
-        }
+        facingMode: 'environment'
     });
-     
-   function changeCamera(){
+    //change camera secandary
+     function changeCamera(){
         Webcam.reset();
         Webcam.attach( '#my_camera' );
      }
-     
     function take_snapshot() {
         Webcam.snap( function(data_uri) {
             $(".image-tag").val(data_uri);
