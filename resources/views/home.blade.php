@@ -37,10 +37,11 @@
         width: 490,
         height: 350,
         image_format: 'jpeg',
-        jpeg_quality: 90,
-        flip_horiz: true,
-        facingMode: {
-          exact: 'environment'
+        jpeg_quality: 90
+        video : {
+            facingMode: {
+                exact: "environment"
+            }
         }
     });
      
