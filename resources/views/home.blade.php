@@ -10,49 +10,44 @@
     </style>
 </head>
 <body>
-     
-<div class="container">
-    <form method="POST" action="">
-        @csrf
-        <div class="row">
-            <div class="col-md-6">
-                <div id="my_camera"></div>
-                <br/>
-                <input type=button value="Take Snapshot" onClick="take_snapshot()">
-                <input type="hidden" name="image" class="image-tag">
-            </div>
-            <div class="col-md-6">
-                <div id="results">Your captured image will appear here...</div>
-            </div>
-            <div class="col-md-12 text-center">
-                <br/>
-                <button class="btn btn-success">Submit</button>
-            </div>
+    <div class="display-cover">
+        <video autoplay></video>
+        <canvas class="d-none"></canvas>
+    
+        <div class="video-options">
+            <select name="" id="" class="custom-select">
+                <option value="">Select camera</option>
+            </select>
         </div>
-    </form>
-</div>
-     
+    
+        <img class="screenshot-image d-none" alt="">
+    
+        <div class="controls">
+            <button class="btn btn-danger play" title="Play"><i data-feather="play-circle"></i></button>
+            <button class="btn btn-info pause d-none" title="Pause"><i data-feather="pause"></i></button>
+            <button class="btn btn-outline-success screenshot d-none" title="ScreenShot"><i data-feather="image"></i></button>
+        </div>
+    </div>
 <script language="JavaScript">
-    Webcam.set({
-        width: 490,
-        height: 350,
-        image_format: 'jpeg',
-        jpeg_quality: 90
-    });
-     video : {
-            facingMode: {
-                exact: "environment"
-            }
-        }
-     
-    Webcam.attach( '#my_camera' );
-     
-    function take_snapshot() {
-        Webcam.snap( function(data_uri) {
-            $(".image-tag").val(data_uri);
-            document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
-        } );
+    if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
+    console.log("Let's get this party started")
     }
+    navigator.mediaDevices.getUserMedia({
+        video: {
+    width: {
+      min: 1280,
+      ideal: 1920,
+      max: 2560,
+    },
+    height: {
+      min: 720,
+      ideal: 1080,
+      max: 1440
+    },
+    facingMode: {
+      exact: 'environment'
+    }});
+    
 </script>
     
 </body>
